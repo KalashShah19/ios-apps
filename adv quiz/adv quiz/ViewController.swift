@@ -43,6 +43,17 @@ class ViewController: UIViewController {
     var score = 0
     
     override func viewDidLoad() {
+        let str = "Data in File"
+        let doc  = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        let filename = doc.appendingPathComponent("data.txt")
+
+        do {
+            try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+            print("File Written")
+        } catch {
+            print("Error in File")
+        }
+        
         super.viewDidLoad()
         img.isHidden = true
         size = questions.count
