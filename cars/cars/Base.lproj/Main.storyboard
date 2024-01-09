@@ -25,6 +25,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="typing:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="RAp-rG-rJ2"/>
+                                </connections>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mRP-Wj-B5o">
                                 <rect key="frame" x="255" y="808" width="49" height="31"/>
@@ -65,7 +68,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="BMW Q3">
+                                        <fragment content="BMW M2">
                                             <attributes>
                                                 <font key="NSFont" size="21" name="Helvetica"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -73,6 +76,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="bmw:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y0E-IM-4wf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXA-0K-Rzs">
                                 <rect key="frame" x="255" y="560" width="112" height="62"/>
@@ -88,6 +94,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="porche:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YeP-o9-Iwg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="boR-g2-UG6">
                                 <rect key="frame" x="69" y="691" width="112" height="62"/>
@@ -103,6 +112,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="bugatti:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u9A-EJ-pQi"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGi-W1-tAu">
                                 <rect key="frame" x="74" y="77" width="266" height="49"/>
@@ -118,6 +130,7 @@
                     <connections>
                         <outlet property="LBLdark" destination="uZk-EP-HDU" id="L1a-kq-3fO"/>
                         <outlet property="LBLtitle" destination="LGi-W1-tAu" id="OSu-JM-qmb"/>
+                        <outlet property="TXTinput" destination="73Y-1K-5ba" id="67P-i9-NqH"/>
                         <outlet property="image" destination="12K-I6-BkC" id="P0S-2l-cMK"/>
                         <outlet property="switchDark" destination="mRP-Wj-B5o" id="rb2-PP-vcL"/>
                     </connections>
