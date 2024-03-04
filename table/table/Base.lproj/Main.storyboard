@@ -19,30 +19,30 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vxe-eq-s7l">
-                                    <rect key="frame" x="10" y="23" width="300" height="34"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="bdo-jZ-kUt"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzC-4k-eTl">
-                                    <rect key="frame" x="330" y="26" width="67" height="31"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cars" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrG-ee-1Xr">
+                                    <rect key="frame" x="158" y="3" width="98" height="54"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <stackView key="tableFooterView" opaque="NO" contentMode="scaleToFill" id="Fzb-Xb-b2q">
+                            <rect key="frame" x="0.0" y="170.5" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsJ-1h-9c8">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="filled" title="Add"/>
+                                    <buttonConfiguration key="configuration" style="filled" title="Add "/>
                                     <connections>
-                                        <action selector="add:" destination="aRG-Vf-DiI" eventType="touchUpInside" id="RR7-ii-xgV"/>
+                                        <action selector="AddAlert:" destination="aRG-Vf-DiI" eventType="touchUpInside" id="3sY-K4-7bZ"/>
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstItem="dzC-4k-eTl" firstAttribute="leading" secondItem="Vxe-eq-s7l" secondAttribute="trailing" constant="5" id="AoC-qC-FTY"/>
-                                <constraint firstAttribute="trailing" secondItem="dzC-4k-eTl" secondAttribute="trailing" constant="10" id="Qv1-vp-omQ"/>
-                                <constraint firstItem="Vxe-eq-s7l" firstAttribute="leading" secondItem="2D8-Jl-F9a" secondAttribute="leading" constant="10" id="ghk-np-kNb"/>
-                            </constraints>
-                        </view>
+                        </stackView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="firstCell" textLabel="Bne-uk-N7T" style="IBUITableViewCellStyleDefault" id="3gd-a0-L37">
                                 <rect key="frame" x="0.0" y="104.5" width="414" height="43.5"/>
@@ -68,8 +68,8 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="footer" destination="Fzb-Xb-b2q" id="MBF-IN-lri"/>
                         <outlet property="table" destination="dYa-cb-ucW" id="12N-31-gf3"/>
-                        <outlet property="textInput" destination="Vxe-eq-s7l" id="Cjb-tn-fs2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gp1-me-eM9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
