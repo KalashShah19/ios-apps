@@ -2,7 +2,7 @@
 //  TableViewController.swift
 //  CricketersTable
 //
-//  Created by bmiit on 05/03/24.
+//  Created by Kalash on 05/03/24.
 //
 
 import UIKit
@@ -51,10 +51,8 @@ class CricketerTableViewController: UITableViewController {
     }
     
     @IBAction func add(_ sender: Any) {
-        //1. Create the alert controller.
-        let alert = UIAlertController(title: "Enter Cricketer Details", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Enter Cricketer Details", message: "Name, Age, Matches, Innings, Runs, Not Outs", preferredStyle: .alert)
 
-        //2. Add the text field. You can configure it however you need.
         alert.addTextField(configurationHandler: { [self] (textField) -> Void in
             textField.placeholder = "Enter Name"
         })
@@ -79,7 +77,6 @@ class CricketerTableViewController: UITableViewController {
             textField.placeholder = "Enter Not Outs"
         })
         
-        //3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak alert] (action) -> Void in
             let TXTname = (alert?.textFields![0])!
             let TXTage = (alert?.textFields![1])!
@@ -100,20 +97,10 @@ class CricketerTableViewController: UITableViewController {
             print("Cancelled")
         }))
 
-        // 4. Present the alert.
         self.present(alert, animated: true, completion: nil)
         
     }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
 
-    
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             data.remove(at: indexPath.row)
@@ -123,10 +110,8 @@ class CricketerTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //1. Create the alert controller.
-        let alert = UIAlertController(title: "Edit Cricketer Details", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Edit Cricketer Details", message: "Name, Age, Matches, Innings, Runs, Not Outs", preferredStyle: .alert)
 
-        //2. Add the text field. You can configure it however you need.
         alert.addTextField(configurationHandler: { [self] (textField) -> Void in
             textField.text = data[indexPath.row].name
         })
@@ -151,7 +136,6 @@ class CricketerTableViewController: UITableViewController {
             textField.text = String(data[indexPath.row].notout)
         })
         
-        //3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { [self, weak alert] (action) -> Void in
             let TXTname = (alert?.textFields![0])!
             let TXTage = (alert?.textFields![1])!
@@ -168,14 +152,14 @@ class CricketerTableViewController: UITableViewController {
             data[indexPath.row].notout = Int(TXTnotout.text!)!
             
             print("Player Updated")
+            display()
             self.table.reloadData()
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [weak alert] (action) -> Void in
             print("Cancelled")
         }))
-
-        // 4. Present the alert.
+        
         self.present(alert, animated: true, completion: nil)
     }
 
@@ -188,30 +172,44 @@ class CricketerTableViewController: UITableViewController {
         let match:Double = Double(data.lazy.compactMap{ $0.matches }.reduce(0, +) / data.count)
         LBLmatches.text = "Matches : \(match)"
     }
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let alert = UIAlertController(title: "Cricketer Details", message: "Name, Age, Matches, Innings, Runs, Not Outs", preferredStyle: .alert)
+        
+        alert.addTextField(configurationHandler: { [self] (textField) -> Void in
+            textField.text = data[indexPath.row].name
+            textField.isUserInteractionEnabled = false
+        })
+        
+        alert.addTextField(configurationHandler: { [self] (textField) -> Void in
+            textField.text = String(data[indexPath.row].age)
+            textField.isUserInteractionEnabled = false
+        })
+        
+        alert.addTextField(configurationHandler: { [self] (textField) -> Void in
+            textField.text = String(data[indexPath.row].matches)
+            textField.isUserInteractionEnabled = false
+        })
+        
+        alert.addTextField(configurationHandler: { [self] (textField) -> Void in
+            textField.text = String(data[indexPath.row].innings)
+            textField.isUserInteractionEnabled = false
+        })
 
+        alert.addTextField(configurationHandler: { [self] (textField) -> Void in
+            textField.text = String(data[indexPath.row].runs)
+            textField.isUserInteractionEnabled = false
+        })
+        
+        alert.addTextField(configurationHandler: { [self] (textField) -> Void in
+            textField.text = String(data[indexPath.row].notout)
+            textField.isUserInteractionEnabled = false
+        })
+        
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { [weak alert] (action) -> Void in
+            print("Showed")
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
