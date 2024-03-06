@@ -25,12 +25,7 @@ class CricketerTableViewController: UITableViewController {
         super.viewDidLoad()
         table.dataSource = self
         table.delegate = self
-        
-        
-        
-        LBLplayers.text = "Players : \(data.count)"
-        LBLage.text = "Avg Age : \(age)"
-        LBLmatches.text = "Avg Matches = "
+        display()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -98,6 +93,7 @@ class CricketerTableViewController: UITableViewController {
             self.data.append(player)
             print("Player Inserted")
             self.table.reloadData()
+            self.display()
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [weak alert] (action) -> Void in
@@ -106,6 +102,7 @@ class CricketerTableViewController: UITableViewController {
 
         // 4. Present the alert.
         self.present(alert, animated: true, completion: nil)
+        
     }
     /*
     // Override to support conditional editing of the table view.
@@ -120,6 +117,7 @@ class CricketerTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             data.remove(at: indexPath.row)
+            display()
             table.reloadData()
         }
     }
@@ -181,6 +179,16 @@ class CricketerTableViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
+    func display(){
+        LBLplayers.text = "Cricketers : \(data.count)"
+        
+        let age:Double = Double(data.lazy.compactMap{ $0.age }.reduce(0, +) / data.count)
+        LBLage.text = "Age : \(age)"
+        
+        let match:Double = Double(data.lazy.compactMap{ $0.matches }.reduce(0, +) / data.count)
+        LBLmatches.text = "Matches : \(match)"
+    }
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
