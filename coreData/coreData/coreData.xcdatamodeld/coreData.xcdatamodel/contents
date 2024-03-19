@@ -5,7 +5,11 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="price" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="Theme" representedClassName="Theme" syncable="YES" codeGenerationType="class">
+        <attribute name="dark" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <elements>
         <element name="Cars" positionX="-63" positionY="-18" width="75.5172119140625" height="88"/>
+        <element name="Theme" positionX="-90" positionY="9" width="128" height="44"/>
     </elements>
 </model>
